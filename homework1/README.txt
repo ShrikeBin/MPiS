@@ -1,5 +1,6 @@
 # DEPENDENCIES
 
 ```
-pip install numpy matplotlib
+    pip install numpy
+    pip install matplotlib
 ```

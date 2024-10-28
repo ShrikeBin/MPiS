@@ -54,9 +54,9 @@ start_time = time.time()
 plt.subplot(3, 2, 1)
 f_results_5 = [run_f(n, 5) for n in n_values]
 for n, results in zip(n_values, f_results_5):
-    plt.scatter([n]*len(results), results, color='lightblue', alpha=0.5, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 5 runs
+    plt.scatter([n]*len(results), results, color='cyan', alpha=0.6, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 5 runs
 f_avg_5 = [np.mean(res) for res in f_results_5]
-plt.scatter(n_values, f_avg_5, label='Average (5 runs)', color='red', linewidth=2)
+plt.scatter(n_values, f_avg_5, label='Average (5 runs)', color='midnightblue', linewidth=2)
 plt.axhline(y=true_value_f, color='lime', linestyle='-', label='True Value', linewidth=2)
 plt.title("Monte Carlo Simulation of f(x) = sin(x) (5 runs)")
 plt.xlabel("n")
@@ -68,9 +68,9 @@ plt.grid()
 plt.subplot(3, 2, 2)
 f_results_50 = [run_f(n, 50) for n in n_values]
 for n, results in zip(n_values, f_results_50):
-    plt.scatter([n]*len(results), results, color='lightblue', alpha=0.3, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 50 runs
+    plt.scatter([n]*len(results), results, color='cyan', alpha=0.6, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 50 runs
 f_avg_50 = [np.mean(res) for res in f_results_50]
-plt.scatter(n_values, f_avg_50, label='Average (50 runs)', color='red', linewidth=2)
+plt.scatter(n_values, f_avg_50, label='Average (50 runs)', color='midnightblue', linewidth=2)
 plt.axhline(y=true_value_f, color='lime', linestyle='-', label='True Value', linewidth=2)
 plt.title("Monte Carlo Simulation of f(x) = sin(x) (50 runs)")
 plt.xlabel("n")
@@ -82,9 +82,9 @@ plt.grid()
 plt.subplot(3, 2, 3)
 g_results_5 = [run_g(n, 5) for n in n_values]
 for n, results in zip(n_values, g_results_5):
-    plt.scatter([n]*len(results), results, color='lightblue', alpha=0.5, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 5 runs
+    plt.scatter([n]*len(results), results, color='cyan', alpha=0.6, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 5 runs
 g_avg_5 = [np.mean(res) for res in g_results_5]
-plt.scatter(n_values, g_avg_5, label='Average (5 runs)', color='red', linewidth=2)
+plt.scatter(n_values, g_avg_5, label='Average (5 runs)', color='midnightblue', linewidth=2)
 plt.axhline(y=true_value_g, color='lime', linestyle='-', label='True Value', linewidth=2)
 plt.title("Monte Carlo Simulation of g(x) = 4x(1-x)^3 (5 runs)")
 plt.xlabel("n")
@@ -96,9 +96,9 @@ plt.grid()
 plt.subplot(3, 2, 4)
 g_results_50 = [run_g(n, 50) for n in n_values]
 for n, results in zip(n_values, g_results_50):
-    plt.scatter([n]*len(results), results, color='lightblue', alpha=0.3, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 50 runs
+    plt.scatter([n]*len(results), results, color='cyan', alpha=0.6, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 50 runs
 g_avg_50 = [np.mean(res) for res in g_results_50]
-plt.scatter(n_values, g_avg_50, label='Average (50 runs)', color='red', linewidth=2)
+plt.scatter(n_values, g_avg_50, label='Average (50 runs)', color='midnightblue', linewidth=2)
 plt.axhline(y=true_value_g, color='lime', linestyle='-', label='True Value', linewidth=2)
 plt.title("Monte Carlo Simulation of g(x) = 4x(1-x)^3 (50 runs)")
 plt.xlabel("n")
@@ -110,9 +110,9 @@ plt.grid()
 plt.subplot(3, 2, 5)
 h_results_5 = [run_h(n, 5) for n in n_values]
 for n, results in zip(n_values, h_results_5):
-    plt.scatter([n]*len(results), results, color='lightblue', alpha=0.5, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 5 runs
+    plt.scatter([n]*len(results), results, color='cyan', alpha=0.6, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 5 runs
 h_avg_5 = [np.mean(res) for res in h_results_5]
-plt.scatter(n_values, h_avg_5, label='Average (5 runs)', color='red', linewidth=2)
+plt.scatter(n_values, h_avg_5, label='Average (5 runs)', color='midnightblue', linewidth=2)
 plt.axhline(y=true_value_h, color='lime', linestyle='-', label='True Value', linewidth=2)
 plt.title("Monte Carlo Simulation of h(x) = x^(1/3) (5 runs)")
 plt.xlabel("n")
@@ -124,9 +124,9 @@ plt.grid()
 plt.subplot(3, 2, 6)
 h_results_50 = [run_h(n, 50) for n in n_values]
 for n, results in zip(n_values, h_results_50):
-    plt.scatter([n]*len(results), results, color='lightblue', alpha=0.3, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 50 runs
+    plt.scatter([n]*len(results), results, color='cyan', alpha=0.6, s=10, label='Individual Result' if n == 50 else "")  # Scatter for 50 runs
 h_avg_50 = [np.mean(res) for res in h_results_50]
-plt.scatter(n_values, h_avg_50, label='Average (50 runs)', color='red', linewidth=2)
+plt.scatter(n_values, h_avg_50, label='Average (50 runs)', color='midnightblue', linewidth=2)
 plt.axhline(y=true_value_h, color='lime', linestyle='-', label='True Value', linewidth=2)
 plt.title("Monte Carlo Simulation of h(x) = x^(1/3) (50 runs)")
 plt.xlabel("n")
