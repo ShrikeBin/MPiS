@@ -17,21 +17,15 @@
 
 \section*{Opis wyników}
 
-W ramach eksperymentu wykorzystano metodę Monte Carlo do przybliżonego obliczenia wartości całek oznaczonych dla następujących funkcji:
+W ramach zadania wykorzystałem metodę Monte Carlo do przybliżonego obliczenia wartości całek oznaczonych dla następujących funkcji:
 \begin{itemize}
     \item \( f(x) = \sin(x) \) na przedziale \( [0, \pi] \),
     \item \( g(x) = 4x(1 - x)^3 \) na przedziale \( [0, 1] \),
-    \item \( h(x) = x^{1/3} \) na przedziale \( [0, 8] \).
+    \item \( h(x) = x^{1/3} \) na przedziale \( [0, 8] \),
+    \item \( \pi(x, y) = \begin{cases} 1 & \text{} x^2 + y^2 < 1 \\ 0 & \text{else} \end{cases} \) w kwadracie jednostkowym (przybliżanie wartości \(\pi\)).
 \end{itemize}
 
-Dla każdej z tych funkcji wykonano symulacje przy różnych liczbach próbek (\( n \)) z zakresu od 50 do 5000, a także przeprowadzono 5 i 50 powtórzeń dla każdej liczby próbek. Wyniki zostały zwizualizowane na wykresach w celu porównania przybliżonych wartości całek Monte Carlo z ich rzeczywistymi wartościami:
-\begin{itemize}
-    \item \( \approx 2 \) dla \( f(x) = \sin(x) \),
-    \item \( \approx 0.2 \) dla \( g(x) = 4x(1 - x)^3 \),
-    \item \( \approx 12 \) dla \( h(x) = x^{1/3} \).
-\end{itemize}
-
-Na wykresach przedstawiono wyniki pojedynczych symulacji oraz ich średnie wartości, umożliwiając porównanie przybliżonych wyników Monte Carlo z wartościami teoretycznymi.
+Na wykresach (pliki .png) przedstawiam wyniki pojedynczych symulacji oraz ich średnie wartości, umożliwiając porównanie przybliżonych wyników Monte Carlo z wartościami faktycznymi.
 
 \section*{Wnioski}
 
@@ -40,17 +34,21 @@ Na wykresach przedstawiono wyniki pojedynczych symulacji oraz ich średnie warto
     Metoda Monte Carlo skutecznie przybliża wartości całek dla wszystkich analizowanych funkcji. Wraz ze wzrostem liczby próbek \( n \) rośnie stabilność wyników, co pozwala uzyskać przybliżenia bliższe wartości rzeczywistej.
     
     \item \textbf{Wpływ liczby powtórzeń}: \\
-    Zwiększenie liczby powtórzeń (do 50) poprawia stabilność wyników, zmniejszając odchylenia od wartości rzeczywistej. Pokazuje to, że liczba powtórzeń jest kluczowa dla dokładności wyników przy mniejszych wartościach \( n \).
+    Zwiększenie liczby powtórzeń poprawia stabilność wyników, zmniejszając odchylenia od wartości rzeczywistej. Widać przez to, że liczba powtórzeń jest kluczowa dla dokładności wyników.
     
-    \item \textbf{Charakterystyka funkcji a dokładność}: \\
-    Funkcje o bardziej złożonym kształcie, takie jak \( f(x) = \sin(x) \) i \( g(x) = 4x(1 - x)^3 \), wymagają większej liczby próbek, aby uzyskać zadowalające przybliżenia, w porównaniu do funkcji \( h(x) = x^{1/3} \).
+    \item \textbf{Charakterystyka zwiększania ilości powtórzeń dla \( n\)}: \\
+    Warto zauważyć że dla dużych wartości \( n\) wynik zaczylają oscylować wokół wartości faktycznej w stałym zakresie co obrazuje że zwiększanie liczby powtórzeń nie daje lepszego przybliżenia oraz że lepszym sposobem jest branie średniej z tych wyników.
     
     \item \textbf{Efektywność obliczeniowa}: \\
-    Choć metoda Monte Carlo jest łatwa w implementacji, czas wykonania rośnie wraz ze wzrostem liczby próbek i powtórzeń. W praktyce liczba próbek i powtórzeń powinna być dostosowana do wymaganej dokładności oraz dostępnych zasobów obliczeniowych.
+    Choć metoda Monte Carlo jest prosta w implementacji, wymaga dużej mocy obliczeniowej dlatego powinna być używana by w relatywnie dokładny sposób przybliżać wartości o średniej dokładności.
 \end{enumerate}
 
 \section*{Podsumowanie}
 
 Symulacja Monte Carlo pozwala uzyskać wartości bliskie rzeczywistym dla wybranych funkcji, stanowiąc skuteczne narzędzie w przypadkach, gdy analityczne obliczenia są trudne. Zwiększenie liczby próbek i powtórzeń znacząco poprawia dokładność wyników, potwierdzając efektywność tej metody.
+\vspace{1cm} 
+
+\hfill
+\textbf{Jan Ryszkiewicz}
 
 \end{document}
