@@ -2,6 +2,7 @@
 #define AXIS_HPP
 
 #include <vector>
+#include <functional>
 
 template<typename T>
 struct axis
@@ -9,7 +10,7 @@ struct axis
     std::vector<T> x;
     std::vector<T> y;
 
-    // conversion
+    // Conversion
     template<typename U>
     operator axis<U>()
     {
@@ -19,6 +20,22 @@ struct axis
             std::vector<U>(y.begin(), y.end())
         };
     }
+
+    void apply_to_x(const std::function<T(T)>& func)
+    {
+        for (auto& val : x)
+        {
+            val = func(val);
+        }
+    }
+
+    void apply_to_y(const std::function<T(T)>& func)
+    {
+        for (auto& val : y)
+        {
+            val = func(val);
+        }
+    }
 };
 
-#endif 
+#endif
