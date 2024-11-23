@@ -5,6 +5,9 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
 \geometry{a4paper, margin=1in}
 
 \title{Raport z Symulacji Urn}
@@ -18,6 +21,7 @@
 \section*{Opis wyników}
 
 W ramach zadania przeprowadziłem symulację wrzucana kul do n urn po 50 razy śledząc następujące informacje:
+\begin{itemize}
     \item \( B \) moment pierwszej kolizji,
     \item \( C \) minimalna liczba rzutów, po której w kazdej z urn jest co najmniej jedna kula,
     \item \( D \) minimalna liczba rzutów, po której w kazdej z urn są co najmniej dwie kule,
@@ -25,28 +29,60 @@ W ramach zadania przeprowadziłem symulację wrzucana kul do n urn po 50 razy ś
     \item \( D - C \) liczba rzutów od momentu Cn potrzebna do tego, zeby w każdej urnie były conajmniej dwie kule.
 \end{itemize}
 
-Na wykresach (pliki .png) przedstawiam wyniki pojedynczych symulacji oraz ich średnie wartości dla danych n.
+\noindent Na wykresach (pliki .png w folderze /plots) przedstawiam wyniki pojedynczych symulacji oraz ich średnie wartości dla danych n.
 
-\section*{Wnioski}
+\section*{Wnioski na temat wartości śledzonych danych}
 
-\begin{enumerate}
-    \item \textbf{Dokładność przybliżeń}: \\
-    Metoda Monte Carlo skutecznie przybliża wartości całek dla wszystkich analizowanych funkcji. Wraz ze wzrostem liczby próbek \( n \) rośnie stabilność wyników, co pozwala uzyskać przybliżenia bliższe wartości rzeczywistej.
-    
-    \item \textbf{Wpływ liczby powtórzeń}: \\
-    Zwiększenie liczby powtórzeń poprawia stabilność wyników, zmniejszając odchylenia od wartości rzeczywistej. Widać przez to, że liczba powtórzeń jest kluczowa dla dokładności wyników.
-    
-    \item \textbf{Charakterystyka zwiększania ilości powtórzeń dla \( n\)}: \\
-    Warto zauważyć że dla dużych wartości \( n\) wynik zaczylają oscylować wokół wartości faktycznej w stałym zakresie co obrazuje że zwiększanie liczby powtórzeń nie daje lepszego przybliżenia oraz że lepszym sposobem jest branie średniej z tych wyników.
-    
-    \item \textbf{Efektywność obliczeniowa}: \\
-    Choć metoda Monte Carlo jest prosta w implementacji, wymaga dużej mocy obliczeniowej dlatego powinna być używana by w relatywnie dokładny sposób przybliżać wartości o średniej dokładności.
-\end{enumerate}
+\begin{itemize}
+    \item \( B \) warto zauważyć, że pierwsza kolizja ma mniejsce bardzo szybko
+    \item \( C \) bardzo duże wartości w stosunku do n, odchylenie rośnie wraz z n
+    \item \( D \) podobnie do C(n)
+    \item \( U \) rośnie stale liniowo, odhylenie od średniej jest minimalne
+    \item \( D - C \) bardzo chaotyczne wyniki, średnia wizualizuje ogólną tendencję
 
-\section*{Podsumowanie}
+\end{itemize}
 
-Symulacja Monte Carlo pozwala uzyskać wartości bliskie rzeczywistym dla wybranych funkcji, stanowiąc skuteczne narzędzie w przypadkach, gdy analityczne obliczenia są trudne. Zwiększenie liczby próbek i powtórzeń znacząco poprawia dokładność wyników, potwierdzając efektywność tej metody.
-\vspace{1cm} 
+\section*{Wnioski na temat asymptotyki}
+
+\begin{itemize}
+    \item \textbf{} \(\frac{b(n)}{n}\)
+    - zbiega do 0
+    \item \textbf{} \(\frac{b(n)}{\sqrt{n}}\)
+    - wydaje się oscylować wokół 1 czyli te funkcje uzyskują podobne wartości
+    \item \textbf{} \(\frac{u(n)}{n}\)
+    - między 0.365 a 0.370, tak samo jak poprzednia, wydaje się stałą więc asymptotycznie funkcje są równe
+    \item \textbf{} \(\frac{c(n)}{n}\)
+    - wydaje się rosnąć, kształt przypomina \(\sqrt{x}\), możliwe że c(n) jest podobna do n\(\sqrt{n}\)
+    \item \textbf{} \(\frac{c(n)}{n^2}\)
+    - zbiega do 0
+    \item \textbf{} \(\frac{c(n)}{n \ln{(n)}}\)
+    - oscyluje nieco powyżej 1 co sugeruje asymptotyczną równość
+    \item \textbf{} \(\frac{d(n)}{n}\)
+    - wydaje się rosnąć, kształt przypomina \(\sqrt{x}\), możliwe że d(n) jest podobna do n\(\sqrt{n}\)
+    \item \textbf{} \(\frac{d(n)}{n^2}\)
+    - zbiega do 0
+    \item \textbf{} \(\frac{d(n)}{n \ln{(n)}}\)
+    - wydaje się bardzo powolnie zbiegać do 0, ciężko określić
+    \item \textbf{} \(\frac{d(n) - c(n)}{n}\)
+    - oscyluje nieco powyżej 2 wydaje się stałą więc prawdopodobnie asymptotycznie funkcje są równe
+    \item \textbf{} \(\frac{d(n) - c(n)}{n \ln{(n)}}\)
+    - wydaje się bardzo powolnie zbiegać do 0, ciężko określić
+    \item \textbf{} \(\frac{d(n) - c(n)}{n \ln{\ln{(n)}}}\)
+    - funkcje są sobie równe, iloraz jest asymptotycznie = 1
+\end{itemize}
+
+\section*{\textsl{Birthday paradox} oraz \textsl{coupon collector's problem}}
+\subsection{Użycie nazw}
+\begin{itemize}
+    \item \textsl{Paradoks urodzinowy} - jak szybko dojdziemy do kolizji (ten sam dzień urodzin) w pewnej grupie ludzi jest dobrym obrazem prezentowanych danych,
+    szansa na kolizję rośnie znacznie szybciej niż mogłoby się wydawać stąd nazwa "paradoks"
+    \item \textsl{Problem zbieracza kuponów} - załóżmy że mamy do zebrania 10 kuponów i w każdej paczce jest losowy kupon, jeżeli chcemy zebrać wszystkie kupony to musimy
+    średnio otworzyć własnie taką liczbę paczek, stąd nazwa.
+\end{itemize}
+\subsection{\textsl{Birthday paradox} a funkcje hashujące}
+"Birthday paradox" pokazuje jak łatwo może dojść do kolizji w funkcji hashującej. 
+Sam paradoks mówi że jeśli w pokoju znajdują się 23 osoby to szansa na to że mają urodziny tego
+samego dnia wynosi >50\% co pokazuje jak szybko wbrew intuicji szansa na kolizję (tutaj daty urodzin) wzrasta.
 
 \hfill
 \textbf{Jan Ryszkiewicz}
