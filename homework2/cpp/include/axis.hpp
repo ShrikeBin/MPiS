@@ -21,20 +21,26 @@ struct axis
         };
     }
 
-    void apply_to_x(const std::function<T(T)>& func)
+    // Apply a function to all elements in x (returns a copy)
+    axis apply_to_x(const std::function<T(T)>& func) const
     {
-        for (auto& val : x)
+        axis<T> result = *this;  // Make a copy of the current object
+        for (auto& val : result.x)
         {
             val = func(val);
         }
+        return result;  // Return the modified copy
     }
 
-    void apply_to_y(const std::function<T(T)>& func)
+    // Apply a function to all elements in y (returns a copy)
+    axis apply_to_y(const std::function<T(T)>& func) const
     {
-        for (auto& val : y)
+        axis<T> result = *this;  // Make a copy of the current object
+        for (auto& val : result.y)
         {
             val = func(val);
         }
+        return result;  // Return the modified copy
     }
 };
 

@@ -84,6 +84,8 @@ single_simulation_results single_simulate(int n)
         results.D = tracker; // all bins have two balls
     }
 
+    results.D_C = results.D - results.C;
+
     return results;
 }
 
@@ -114,11 +116,13 @@ void full_simulation_results::add(int n, const single_simulation_results& result
     U.x.push_back(n);
     C.x.push_back(n);
     D.x.push_back(n);
+    D_C.x.push_back(n);
 
     B.y.push_back(result.B);
     U.y.push_back(result.U);
     C.y.push_back(result.C);
     D.y.push_back(result.D);
+    D_C.y.push_back(result.D_C);
 }
 
 void full_simulation_results::calculate_avg(int tries)
@@ -147,5 +151,10 @@ void full_simulation_results::calculate_avg(int tries)
 
         avg_D.x.push_back(D.x.at(i));
         avg_D.y.push_back(sum / (double)tries);
+
+        sum = std::accumulate(D_C.y.begin() + i, D_C.y.begin() + i + tries, 0);
+
+        avg_D_C.x.push_back(D_C.x.at(i));
+        avg_D_C.y.push_back(sum / (double)tries);
     }
 }

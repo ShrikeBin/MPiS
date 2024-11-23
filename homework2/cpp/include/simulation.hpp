@@ -9,21 +9,25 @@ struct single_simulation_results
     int U;  // empty bins after n balls
     int C;  // all bins have one ball
     int D;  // all bins have two balls
+    int D_C; // D - C
 };
 
 struct full_simulation_results
 {
-    axis<int> B;
+    axis<double> B;
     axis<double> avg_B;
 
-    axis<int> U;
+    axis<double> U;
     axis<double> avg_U;
 
-    axis<int> C;
+    axis<double> C;
     axis<double> avg_C;
 
-    axis<int> D;
+    axis<double> D;
     axis<double> avg_D;
+
+    axis<double> D_C;
+    axis<double> avg_D_C;
 
     void add(int n, const single_simulation_results& result);
     
