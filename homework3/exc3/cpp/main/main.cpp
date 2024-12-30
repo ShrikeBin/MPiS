@@ -28,5 +28,4 @@ int main()
 void process_results(full_simulation_results& results, const std::string& file_base, double p)
 {
     plot(results.T, results.avg_T, file_base + "T.png", "T");
-    plot(results.Tn, results.avg_Tn, file_base + "Tn.png","Tn");
 }
