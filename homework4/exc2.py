@@ -8,7 +8,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 with PdfPages("plots/exc2.pdf") as pdf:
     for n in [10, 15, 20, 25, 30, 50, 100, 200]:
         x = np.arange(0, n+1)
-        cdf = stats.binom.cdf(x-1, n, .5)
+        cdf = stats.binom.cdf(x, n, .5) # trzeba jeszcze raz wygenerować bo wykresy są przesunięte
         E = stats.binom.mean(n, .5)
         var = stats.binom.var(n, .5)
 
